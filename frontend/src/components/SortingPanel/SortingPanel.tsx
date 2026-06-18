@@ -1,7 +1,9 @@
 import type { Car } from "../../models/car";
 import './SortingPanel.css'
+import SortIcon from '../../assets/sort.svg?react'
 
-const SORT_FIELDS: { value: keyof Car; label: string }[] = [
+const SORT_FIELDS: { value: keyof Car | "", label: string }[] = [
+    { value: "", label: "Default" },
     { value: "manufacturer", label: "Manufacturer" },
     { value: "model", label: "Model" },
     { value: "constructionYear", label: "Construction Year" },
@@ -14,51 +16,54 @@ const PAGE_SIZES = [5, 10, 20, 50]
 
 export function SortingPanel() {
 
-    return null
-    // (
-        // <div className="SortingPanel">
-        //     <label>
-        //         Sort by:{" "}
-        //         <select
-        //             value={""}
-        //             onChange={(e) => {}}
-        //         >
-        //             <option value="">Default</option>
-        //             {SORT_FIELDS.map((field) => (
-        //                 <option key={field.value} value={field.value}>
-        //                     {field.label}
-        //                 </option>
-        //             ))}
-        //         </select>
-        //     </label>
+    const order: string = "asc"
 
-        //     <label>
-        //         Order:{" "}
-        //         <select
-        //             value={"asc"}
-        //             onChange={(e) => {
-        //             }}
-        //             disabled={true}
-        //         >
-        //             <option value="asc">Ascending</option>
-        //             <option value="desc">Descending</option>
-        //         </select>
-        //     </label>
+    return (
+        <div className="SortingPanel">
+            {/* <label className="SortingPanel__field">
+                <span className="SortingPanel__label">Sort by</span>
+                <div className="SortingPanel__select">
+                    <select
+                        value={""}
+                        onChange={(e) => {}}
+                    >
+                        {SORT_FIELDS.map((field) => (
+                            <option key={field.value} value={field.value}>
+                                {field.label}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+            </label>
 
-        //     <label>
-        //         Per page:{" "}
-        //         <select
-        //             value={10}
-        //             onChange={(e) => {
-        //             }}
-        //         >
-        //             {PAGE_SIZES.map((size) => (
-        //                 <option key={size} value={size}>
-        //                     {size}
-        //                 </option>
-        //             ))}
-        //         </select>
-        //     </label>
-        // </div>
-    // )
+            <button
+                type="button"
+                className="SortingPanel__order"
+                onClick={() => {}}
+                disabled={false}
+                aria-label={order === "asc" ? "Sort ascending" : "Sort descending"}
+                title={order === "asc" ? "Ascending" : "Descending"}
+            >
+                <SortIcon
+                    className={`SortingPanel__orderIcon${order === "desc" ? " SortingPanel__orderIcon--desc" : ""}`}
+                />
+            </button>
+
+            <label className="SortingPanel__field">
+                <span className="SortingPanel__label">Per page</span>
+                <div className="SortingPanel__select">
+                    <select
+                        value={0}
+                        onChange={(e) => {}}
+                    >
+                        {PAGE_SIZES.map((size) => (
+                            <option key={size} value={size}>
+                                {size}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+            </label> */}
+        </div>
+    )
 }

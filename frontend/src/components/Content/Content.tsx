@@ -21,13 +21,16 @@ export function Content() {
         <div className="Content">
             <FiltersPanel />
 
+            <SortingPanel />
+
             {isLoading && <p>Data is loading...</p>}
             {isError && <p>Something went wrong</p>}
 
-            <SortingPanel />
-
             {!isLoading && !isError && (
                 <div className="CarList">
+
+                    <Pagination />
+
                     {filteredCarsList.map((car) => (
                         <CarItem key={car.vin} car={car} />
                     ))}
